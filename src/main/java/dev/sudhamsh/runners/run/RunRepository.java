@@ -1,6 +1,5 @@
 package dev.sudhamsh.runners.run;
 
-import jakarta.annotation.PostConstruct;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.jdbc.core.simple.JdbcClient;
@@ -47,5 +46,11 @@ public class RunRepository {
                 .params(List.of(run.id(),run.distance(),run.duration(),run.location().toString(),run.data_d()))
                 .update();
         Assert.state(update==1,"Failed to update runner with id "+run.id());
+    }
+
+    public void saveAll(List<Run> allRuns) {
+        for(Run r:allRuns){
+            create(r);
+        }
     }
 }

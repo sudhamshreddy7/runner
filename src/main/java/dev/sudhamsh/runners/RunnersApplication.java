@@ -18,13 +18,6 @@ public class RunnersApplication {
 //		ConfigurableApplicationContext context = SpringApplication.run(RunnersApplication.class, args);
 		log.info("Application started!");
 	}
-	@Bean
-	CommandLineRunner runner(){
-		return args -> {
-			Run run = new Run(1,7,10, Location.INDOOR,"Today");
-			log.info(run+"\n");
-		};
 
-	}
 
 }
